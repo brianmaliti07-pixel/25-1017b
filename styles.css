@@ -1,0 +1,21 @@
+/* External CSS - 3 marks */
+header, section, main, footer {
+  background-color: #ffffff; /* Background colour (3 marks) */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+section:hover, header:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s;
+}
+
+ul {
+  padding-left: 25px;
+}
+
+.highlight {
+  background-color: #fff9c4;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
