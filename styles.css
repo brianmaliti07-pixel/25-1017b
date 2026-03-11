@@ -19,6 +19,19 @@ font-weight:bold;
 background:orange;
 }
 
+.paragraph3{
+color:purple;
+text-decoration:underline;
+}
+
+.highlight3{
+color:blue;
+}
+
+.building3{
+color:orange;
+}
+
 .container{
 display:flex;
 gap:20px;
