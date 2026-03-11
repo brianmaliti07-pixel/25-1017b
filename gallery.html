@@ -3,23 +3,11 @@
 <head>
 <title>Gallery</title>
 <link rel="stylesheet" href="style.css">
-</head>
-
-  <style>
-body{
-background-color:#f0f8ff;
-font-family:Arial;
-}
-</style>
-
-</head>
-
-<body>
 
 <header>
-<h1 style="text-align:center;color:darkblue;">Brian Onyango Portfolio</h1>
-</header>
-
+  <h1 style="text-align:center;color:darkblue;">Brian onyango portfolio</h1>
+</header>  
+  
 <nav class="menu">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
@@ -29,31 +17,61 @@ font-family:Arial;
 <a href="css.html">CSS</a>
 </nav>
   
-</body>
+<style>
+
+.slideshow{
+width:500px;
+margin:auto;
+}
+
+.slideshow img{
+width:100%;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+</style>
+
+</head>
+
+<body>
 
 <h1>Image Gallery</h1>
 
-<div class="container">
+<div class="slideshow">
 
-<div class="box">
-<img src="https://picsum.photos/300?1">
+<img id="gallery" src="https://picsum.photos/500?1">
+
 </div>
 
-<div class="box">
-<img src="https://picsum.photos/300?2">
-</div>
+<script>
 
-<div class="box">
-<img src="https://picsum.photos/300?3">
-</div>
+let images = [
+"https://picsum.photos/500?1",
+"https://picsum.photos/500?2",
+"https://picsum.photos/500?3",
+"https://picsum.photos/500?4",
+"https://picsum.photos/500?5"
+];
 
-<div class="box">
-<img src="https://picsum.photos/300?4">
-</div>
+let i = 0;
 
-<div class="box">
-<img src="https://picsum.photos/300?5">
-</div>
+function changeImage(){
+
+i++;
+
+if(i >= images.length){
+i = 0;
+}
+
+document.getElementById("gallery").src = images[i];
+
+}
+
+setInterval(changeImage,3000);
+
+</script>
 
 </body>
 </html>
+
