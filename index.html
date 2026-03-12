@@ -5,15 +5,77 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+
+/* HERO SECTION */
+.hero{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(to right,#2196f3,#00bcd4);
+color:white;
+}
+
+/* ANIMATED BUTTON */
+.hero button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:25px;
+background:#ff9800;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover{
+background:#ff5722;
+transform:scale(1.1);
+}
+
+/* GRAPHIC IMAGE */
+.hero img{
+width:120px;
+margin-top:20px;
+animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
+
+/* FEATURE BOXES */
+
+.features{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+padding:40px;
+}
+
+.feature-box{
+background:white;
+width:250px;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+text-align:center;
+transition:0.3s;
+}
+
+.feature-box:hover{
+transform:translateY(-8px);
+}
+
+</style>
+
 </head>
 
 <body>
-  
-<header>
-<h1 style="text-align:center;color:darkblue;">Brian Onyango Portfolio</h1>
-</header>
-  
-<!-- NAVIGATION TABS -->
+
+<!-- NAVIGATION -->
 <nav>
 
 <a href="index.html">Home</a>
@@ -21,39 +83,47 @@
 <a href="gallery.html">Gallery</a>
 <a href="videos.html">Videos</a>
 <a href="contact.html">Contact</a>
-<a href="css.html">Css</a>
+
 </nav>
 
-<h1>Welcome to Brian Onyango's Website</h1>
+<!-- HERO SECTION -->
 
-<div class="container">
+<div class="hero">
 
-<div class="box">
+<h1>Welcome to My Website</h1>
 
-<h2>About Me</h2>
+<p>Brian Elijah Maliti Onyango | Admission 25-1017</p>
 
-<p>I am Brian Onyango, a student passionate about programming, technology and web development.</p>
-<p>It is created as part of my web development final project.</p>
-</div>
+<button>Explore My Work</button>
 
-</div class="box">
+<br>
 
-<h2>My Skills</h2>
-
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>C++ Programming</li>
-<li>Web Design</li>
-</ul>
+<img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
 
 </div>
 
-<div class="box">
+<!-- FEATURE SECTION -->
 
-<h2>Projects</h2>
+<div class="features">
 
-<p>This website demonstrates the use of HTML, CSS, containers, images, videos and tables.</p>
+<div class="feature-box">
+
+<h3>💻 Programming</h3>
+<p>I enjoy learning programming languages like C++ and building logical solutions.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>🌐 Web Development</h3>
+<p>This project demonstrates HTML, CSS, containers, and responsive design.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>🚀 Creativity</h3>
+<p>I enjoy creating visually appealing websites and experimenting with design.</p>
 
 </div>
 
@@ -61,9 +131,9 @@
 
 <footer>
 
-<p>© 2026 Brian Elijah Maliti Onyango | Admission 25-1017</p>
+<p>© 2026 Brian Onyango | Daystar University</p>
 
 </footer>
 
 </body>
-</html>
+  </html>
