@@ -59,6 +59,7 @@ h1{
   cursor:pointer;
 }
 
+/* IMAGES STACKED */
 .gallery-item img{
   width:100%;
   height:100%;
@@ -68,10 +69,12 @@ h1{
   left:0;
   opacity:0;
   transition:opacity 1s ease-in-out;
+  z-index:0;
 }
 
 .gallery-item img.active{
   opacity:1;
+  z-index:1;
 }
 
 .caption{
@@ -103,24 +106,25 @@ h1{
 <div class="gallery-grid">
   <div class="gallery-item" id="col1">
     <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800" class="active">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=801">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=802">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=803">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=804">
+    <img src="https://images.pexels.com/photos/373562/pexels-photo-373562.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <img src="https://images.pexels.com/photos/373540/pexels-photo-373540.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <img src="https://images.pexels.com/photos/373541/pexels-photo-373541.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <img src="https://images.pexels.com/photos/373542/pexels-photo-373542.jpeg?auto=compress&cs=tinysrgb&w=800">
     <div class="caption">Ignite Your Imagination</div>
   </div>
 
   <div class="gallery-item" id="col2">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=805" class="active">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=806">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=807">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=808">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=809">
+    <img src="https://images.pexels.com/photos/373544/pexels-photo-373544.jpeg?auto=compress&cs=tinysrgb&w=800" class="active">
+    <img src="https://images.pexels.com/photos/373545/pexels-photo-373545.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <img src="https://images.pexels.com/photos/373546/pexels-photo-373546.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <img src="https://images.pexels.com/photos/373547/pexels-photo-373547.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <img src="https://images.pexels.com/photos/373548/pexels-photo-373548.jpeg?auto=compress&cs=tinysrgb&w=800">
     <div class="caption">Perception Reimagined</div>
   </div>
 </div>
 
 <script>
+// FUNCTION TO CYCLE IMAGES BACK TO BACK
 function autoCycle(columnId){
   const container = document.getElementById(columnId);
   const imgs = container.getElementsByTagName("img");
