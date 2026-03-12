@@ -8,7 +8,6 @@ body{
   font-family:Segoe UI,sans-serif;
   background:radial-gradient(circle,#0f172a,#020617);
   color:white;
-  overflow-x:hidden;
 }
 
 /* NAVIGATION */
@@ -39,7 +38,7 @@ h1{
   text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
 }
 
-/* GALLERY GRID */
+/* GRID */
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -48,31 +47,27 @@ h1{
   margin:50px auto;
 }
 
+/* ITEM */
 .gallery-item{
   position:relative;
   border-radius:15px;
   overflow:hidden;
-  cursor:pointer;
   box-shadow:0 0 20px #38bdf8;
-  transition:0.4s;
   border:1px solid rgba(255,255,255,0.1);
   backdrop-filter:blur(10px);
-}
-
-.gallery-item:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 40px #38bdf8;
+  height:250px;
+  cursor:pointer;
 }
 
 .gallery-item img{
   width:100%;
-  height:250px;
+  height:100%;
   object-fit:cover;
   position:absolute;
   top:0;
   left:0;
-  transition:opacity 1s ease-in-out;
   opacity:0;
+  transition:opacity 1s ease-in-out;
 }
 
 .gallery-item img.active{
@@ -81,16 +76,15 @@ h1{
 
 .caption{
   position:absolute;
-  bottom:10px;
+  bottom:0;
   width:100%;
   text-align:center;
   color:#cbd5f5;
   font-size:16px;
   font-weight:600;
   text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
-  padding:5px 10px;
-  backdrop-filter:blur(5px);
-  background:rgba(0,0,0,0.2);
+  padding:5px 0;
+  background:rgba(0,0,0,0.3);
 }
 </style>
 </head>
@@ -108,27 +102,26 @@ h1{
 
 <div class="gallery-grid">
   <div class="gallery-item" id="col1">
-    <img src="https://images.unsplash.com/photo-1581091870627-134d3b38e346?auto=format&fit=crop&w=800&q=80" class="active" alt="">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800" class="active">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=801">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=802">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=803">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=804">
     <div class="caption">Ignite Your Imagination</div>
   </div>
 
   <div class="gallery-item" id="col2">
-    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c443e0c?auto=format&fit=crop&w=800&q=80" class="active" alt="">
-    <img src="https://images.unsplash.com/photo-1581093588401-0f0f2be1e943?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1532777946371-3c0fbe5ff57d?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=805" class="active">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=806">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=807">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=808">
+    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=809">
     <div class="caption">Perception Reimagined</div>
   </div>
 </div>
 
 <script>
-// AUTO-CYCLE IMAGES EVERY 3 SECONDS
-function cycleImages(columnId){
+function autoCycle(columnId){
   const container = document.getElementById(columnId);
   const imgs = container.getElementsByTagName("img");
   let current = 0;
@@ -139,9 +132,9 @@ function cycleImages(columnId){
   },3000);
 }
 
-cycleImages("col1");
-cycleImages("col2");
+autoCycle("col1");
+autoCycle("col2");
 </script>
 
 </body>
-  </html>
+</html>
