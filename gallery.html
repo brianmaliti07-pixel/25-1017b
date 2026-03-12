@@ -2,10 +2,7 @@
 <html>
 <head>
 <title>Gallery</title>
-
 <style>
-
-/* BODY & NAV */
 body{
 margin:0;
 font-family:Segoe UI, sans-serif;
@@ -14,6 +11,7 @@ color:white;
 overflow-x:hidden;
 }
 
+/* NAV */
 nav{
 display:flex;
 justify-content:center;
@@ -69,6 +67,7 @@ transition:0.3s;
 display:flex;
 flex-direction:column;
 align-items:center;
+cursor:pointer;
 }
 
 .gallery-box:hover{
@@ -99,15 +98,57 @@ padding:0 10px;
 text-shadow:0 0 5px #000;
 }
 
-/* OPTIONAL: Glowing text effect */
 .gallery-text span{
 color:#38bdf8;
 font-weight:600;
 text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
 }
 
-</style>
+/* FULLSCREEN OVERLAY */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:1000;
+}
 
+.overlay img{
+max-width:80%;
+max-height:70%;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 0 25px #38bdf8;
+}
+
+.overlay-text{
+color:#38bdf8;
+font-size:20px;
+text-align:center;
+max-width:800px;
+margin-bottom:30px;
+}
+
+.close-btn{
+color:#cbd5f5;
+padding:10px 20px;
+border:1px solid #38bdf8;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.close-btn:hover{
+background:#38bdf8;
+color:black;
+}
+</style>
 </head>
 <body>
 
@@ -127,29 +168,33 @@ text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
 <img src="https://images.unsplash.com/photo-1581091870627-134d3b38e346?auto=format&fit=crop&w=800&q=80" alt="">
 <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
 <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<div class="gallery-text">
-<span>Ignite</span> the mind, and the world begins to unfold in ways never imagined.
-</div>
+<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+<div class="gallery-text"><span>Ignite</span> the mind, and the world begins to unfold in ways never imagined.</div>
 </div>
 
 <div class="gallery-box" id="box2">
 <img src="https://images.unsplash.com/photo-1605902711622-cfb43c443e0c?auto=format&fit=crop&w=800&q=80" alt="">
 <img src="https://images.unsplash.com/photo-1581093588401-0f0f2be1e943?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
 <img src="https://images.unsplash.com/photo-1532777946371-3c0fbe5ff57d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<div class="gallery-text">
-<span>Perception</span> is the lens through which reality transforms into possibility.
-</div>
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+<div class="gallery-text"><span>Perception</span> is the lens through which reality transforms into possibility.</div>
 </div>
 
 <div class="gallery-box" id="box3">
 <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=800&q=80" alt="">
 <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<div class="gallery-text">
-<span>Transcend</span> ordinary thought; embrace the edge where creation begins.
-</div>
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&w=800&q=80" alt="" style="opacity:0">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&w=800&q=80" alt="" style="opacity:0">
+<div class="gallery-text"><span>Transcend</span> ordinary thought; embrace the edge where creation begins.</div>
 </div>
 
+</div>
+
+<!-- FULLSCREEN OVERLAY -->
+<div class="overlay" id="overlay">
+<div class="overlay-text" id="overlay-text"></div>
+<img id="overlay-img" src="">
+<div class="close-btn" onclick="closeOverlay()">Close</div>
 </div>
 
 <script>
@@ -158,7 +203,6 @@ function rotateBoxImages(boxId){
   let box = document.getElementById(boxId);
   let imgs = box.getElementsByTagName("img");
   let current = 0;
-  
   setInterval(()=>{
     imgs[current].style.opacity = 0;
     current = (current + 1) % imgs.length;
@@ -166,10 +210,38 @@ function rotateBoxImages(boxId){
   }, 3000);
 }
 
-// Apply to all 3 boxes
+// Apply rotation
 rotateBoxImages("box1");
 rotateBoxImages("box2");
 rotateBoxImages("box3");
+
+// Fullscreen click logic
+const overlay = document.getElementById("overlay");
+const overlayImg = document.getElementById("overlay-img");
+const overlayText = document.getElementById("overlay-text");
+
+const boxes = document.getElementsByClassName("gallery-box");
+for(let box of boxes){
+  box.addEventListener("click", ()=>{
+    overlay.style.display = "flex";
+    const imgs = box.getElementsByTagName("img");
+    overlayImg.src = imgs[0].src; // show first image
+    overlayText.textContent = box.querySelector(".gallery-text").textContent;
+    
+    // Cycle through images in overlay every 2s
+    let index=0;
+    clearInterval(window.overlayInterval);
+    window.overlayInterval = setInterval(()=>{
+      index = (index +1)%imgs.length;
+      overlayImg.src = imgs[index].src;
+    },2000);
+  });
+}
+
+function closeOverlay(){
+  overlay.style.display = "none";
+  clearInterval(window.overlayInterval);
+}
 
 </script>
 
