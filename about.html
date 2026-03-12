@@ -1,86 +1,231 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>About</title>
-<link rel="stylesheet" href="style.css">
-</head>
 
+<title>About</title>
 
 <style>
+
 body{
-background-color:#f0f8ff;
-font-family:Arial;
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:radial-gradient(circle at top,#0f172a,#020617);
+color:white;
 }
+
+/* NAVIGATION */
+
+nav{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+nav a{
+text-decoration:none;
+color:#cbd5f5;
+font-size:18px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+text-shadow:0 0 10px #38bdf8;
+}
+
+/* TITLE */
+
+h1{
+text-align:center;
+margin-top:50px;
+font-size:50px;
+color:#38bdf8;
+
+text-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8;
+
+}
+
+/* INTRO TEXT */
+
+.intro{
+text-align:center;
+max-width:750px;
+margin:auto;
+margin-top:20px;
+font-size:18px;
+color:#cbd5f5;
+line-height:1.7;
+}
+
+/* CARDS */
+
+.section{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+padding:60px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:15px;
+padding:30px;
+width:260px;
+text-align:center;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #38bdf8;
+}
+
+.card h3{
+color:#38bdf8;
+}
+
+/* TABLE */
+
+table{
+margin:auto;
+margin-top:40px;
+width:70%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:15px;
+border:1px solid rgba(255,255,255,0.2);
+text-align:center;
+}
+
+th{
+background:#38bdf8;
+color:black;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<header>
-<h1 style="text-align:center;color:darkblue;">Brian Onyango Portfolio</h1>
-</header>
+<nav>
 
-<nav class="menu">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="gallery.html">Gallery</a>
 <a href="videos.html">Videos</a>
 <a href="contact.html">Contact</a>
-<a href="css.html">CSS</a>
+
 </nav>
 
+<h1>About</h1>
 
-  
-<body>
+<p class="intro">
 
-<h1>Education</h1>
+Behind every line of code lies a quiet architecture of thought —  
+a space where logic meets imagination and ideas evolve into something tangible.  
 
-<table border="1" width="100%">
+Technology, to me, is more than a collection of tools; it is a medium through which curiosity, creativity and structure converge to shape meaningful digital experiences.
+
+</p>
+
+<div class="section">
+
+<div class="card">
+
+<h3>Curiosity</h3>
+
+<p>
+
+Every discovery begins with a question.  
+Curiosity drives the desire to understand how systems work, how they interact, and how they can evolve beyond their original form.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Creativity</h3>
+
+<p>
+
+Innovation often emerges where logic and imagination intersect.  
+Through experimentation and exploration, abstract concepts gradually transform into functional and elegant solutions.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Growth</h3>
+
+<p>
+
+Technology never stands still.  
+The journey of learning, adapting and refining ideas continues endlessly, shaping both the creator and the creations themselves.
+
+</p>
+
+</div>
+
+</div>
+
+<h2 style="text-align:center; color:#38bdf8;">Education</h2>
+
+<h2 class="edu-title">Milestones of Thought</h2>
+
+<div class="table-container">
+
+<table>
+
 <tr>
-<th>Year</th>
-<th>Institution</th>
-<th>Course</th>
+<th>Phase</th>
+<th>Experience</th>
+<th>Impact</th>
 </tr>
 
 <tr>
-<td>2025</td>
-<td>Daystar University</td>
-<td>Information Technology</td>
+<td>Ignition</td>
+<td>The spark of curiosity that questions, challenges, and dreams.</td>
+<td>Awakens the mind to possibilities yet unseen, the first step toward creation.</td>
 </tr>
 
 <tr>
-<td>2024</td>
-<td>High School</td>
-<td>KCSE</td>
+<td>Exploration</td>
+<td>Diving into unknown concepts, experimenting, testing boundaries.</td>
+<td>Shapes resilience, insight, and a framework for thinking differently.</td>
+</tr>
+
+<tr>
+<td>Transformation</td>
+<td>Abstract ideas meet structure, logic becomes tangible expression.</td>
+<td>Ideas evolve into creations, experiences into understanding, and challenges into mastery.</td>
+</tr>
+
+<tr>
+<td>Expansion</td>
+<td>Continuous curiosity, learning, and connecting disparate thoughts.</td>
+<td>The mind grows beyond convention, embracing innovation and depth.</td>
 </tr>
 
 </table>
 
-<br>
-
-<table border="1" width="100%">
-<tr>
-<th>Skill</th>
-<th>Level</th>
-</tr>
-
-<tr>
-<td>HTML</td>
-<td>Intermediate</td>
-</tr>
-
-<tr>
-<td>C++</td>
-<td>Intermediate</td>
-</tr>
-
-</table>
+</div>
 
 
-<footer>
-<p>© 2026 Brian Onyango | Admission: 25-1017</p>
-</footer
 
 </body>
-</html>
+
+  </html>
