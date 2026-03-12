@@ -4,75 +4,99 @@
 <title>Gallery</title>
 <style>
 body{
-margin:0;
-font-family:Segoe UI,sans-serif;
-background:radial-gradient(circle,#0f172a,#020617);
-color:white;
-overflow-x:hidden;
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:radial-gradient(circle,#0f172a,#020617);
+  color:white;
+  overflow-x:hidden;
 }
 
 /* NAVIGATION */
 nav{
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:20px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
 }
-
 nav a{
-text-decoration:none;
-color:#cbd5f5;
-font-size:18px;
-transition:0.3s;
+  text-decoration:none;
+  color:#cbd5f5;
+  font-size:18px;
+  transition:0.3s;
 }
 nav a:hover{color:#38bdf8;text-shadow:0 0 10px #38bdf8;}
 
 /* TITLE */
-h1{text-align:center;margin-top:50px;font-size:50px;color:#38bdf8;text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;}
+h1{
+  text-align:center;
+  margin-top:50px;
+  font-size:50px;
+  color:#38bdf8;
+  text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
+}
 
-/* GALLERY */
+/* GALLERY BOXES */
 .gallery-container{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:50px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:50px;
+  flex-wrap:wrap;
+  transition:0.5s;
 }
-.gallery-box{
-width:300px;
-height:400px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-border-radius:15px;
-overflow:hidden;
-position:relative;
-box-shadow:0 0 20px #38bdf8;
-transition:0.3s;
-cursor:pointer;
-}
-.gallery-box:hover{transform:translateY(-8px);box-shadow:0 0 35px #38bdf8;}
-.gallery-box img{
-width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; transition:opacity 1s ease-in-out; opacity:1;
-}
-.gallery-text{
-position:absolute; bottom:10px; width:100%; text-align:center; color:#cbd5f5; font-size:14px; line-height:1.3; padding:0 10px; text-shadow:0 0 5px #000;
-}
-.gallery-text span{color:#38bdf8;font-weight:600;text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;}
 
-/* OVERLAY */
-.overlay{
-position:fixed; top:0; left:0; width:100%; height:100%;
-background:rgba(0,0,0,0.95); display:none; justify-content:center; align-items:center; flex-direction:column; z-index:1000;
+.gallery-box{
+  width:280px;
+  height:400px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 0 20px #38bdf8;
+  transition:0.5s;
+  cursor:pointer;
 }
-.overlay img{max-width:80%; max-height:70%; margin-bottom:20px; border-radius:15px; box-shadow:0 0 25px #38bdf8;}
-.overlay-text{color:#38bdf8;font-size:20px;text-align:center;max-width:800px;margin-bottom:30px;}
-.close-btn{color:#cbd5f5;padding:10px 20px;border:1px solid #38bdf8;border-radius:10px;cursor:pointer;transition:0.3s;}
-.close-btn:hover{background:#38bdf8;color:black;}
+
+.gallery-box.active{
+  width:380px; /* widens on click */
+  box-shadow:0 0 50px #38bdf8;
+}
+
+.gallery-box img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  position:absolute;
+  top:0;
+  left:0;
+  transition:opacity 1s ease-in-out;
+  opacity:1;
+}
+
+.gallery-text{
+  position:absolute;
+  bottom:10px;
+  width:100%;
+  text-align:center;
+  color:#cbd5f5;
+  font-size:14px;
+  line-height:1.3;
+  padding:0 10px;
+  text-shadow:0 0 5px #000;
+}
+
+.gallery-text span{
+  color:#38bdf8;
+  font-weight:600;
+  text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
+}
+
 </style>
 </head>
 <body>
@@ -83,45 +107,38 @@ background:rgba(0,0,0,0.95); display:none; justify-content:center; align-items:c
 <a href="gallery.html">Gallery</a>
 <a href="videos.html">Videos</a>
 <a href="contact.html">Contact</a>
-<a href="css.html">Css</a>
 </nav>
 
 <h1>Gallery</h1>
 
 <div class="gallery-container">
-<div class="gallery-box" id="box1">
-<img src="https://images.unsplash.com/photo-1581091870627-134d3b38e346?auto=format&fit=crop&w=800&q=80" alt="">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<div class="gallery-text"><span>Ignite</span> the mind, and the world begins to unfold.</div>
-</div>
+  <div class="gallery-box" id="box1">
+    <img src="https://images.unsplash.com/photo-1581091870627-134d3b38e346?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+    <div class="gallery-text"><span>Ignite</span> the mind, and the world begins to unfold.</div>
+  </div>
 
-<div class="gallery-box" id="box2">
-<img src="https://images.unsplash.com/photo-1605902711622-cfb43c443e0c?auto=format&fit=crop&w=800&q=80" alt="">
-<img src="https://images.unsplash.com/photo-1581093588401-0f0f2be1e943?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<img src="https://images.unsplash.com/photo-1532777946371-3c0fbe5ff57d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<div class="gallery-text"><span>Perception</span> is the lens through which reality transforms.</div>
-</div>
+  <div class="gallery-box" id="box2">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c443e0c?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1581093588401-0f0f2be1e943?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+    <img src="https://images.unsplash.com/photo-1532777946371-3c0fbe5ff57d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+    <div class="gallery-text"><span>Perception</span> is the lens through which reality transforms.</div>
+  </div>
 
-<div class="gallery-box" id="box3">
-<img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=800&q=80" alt="">
-<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&w=800&q=80" alt="" style="opacity:0">
-<div class="gallery-text"><span>Transcend</span> ordinary thought; embrace the edge of creation.</div>
-</div>
-</div>
-
-<div class="overlay" id="overlay">
-<div class="overlay-text" id="overlay-text"></div>
-<img id="overlay-img" src="">
-<div class="close-btn" onclick="closeOverlay()">Close</div>
+  <div class="gallery-box" id="box3">
+    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&w=800&q=80" alt="" style="opacity:0">
+    <div class="gallery-text"><span>Transcend</span> ordinary thought; embrace the edge of creation.</div>
+  </div>
 </div>
 
 <script>
-// ROTATE IMAGES SIMPLIFIED
+// ROTATE IMAGES AUTOMATICALLY
 function rotateBoxImages(boxId){
-  const box = document.getElementById(boxId);
-  const imgs = box.getElementsByTagName("img");
+  const box=document.getElementById(boxId);
+  const imgs=box.getElementsByTagName("img");
   let current=0;
   setInterval(()=>{
     imgs[current].style.opacity=0;
@@ -133,32 +150,18 @@ rotateBoxImages("box1");
 rotateBoxImages("box2");
 rotateBoxImages("box3");
 
-// OVERLAY CLICK
-const overlay=document.getElementById("overlay");
-const overlayImg=document.getElementById("overlay-img");
-const overlayText=document.getElementById("overlay-text");
-
+// CLICK TO WIDEN / FOCUS
 const boxes=document.getElementsByClassName("gallery-box");
+let activeBox=null;
+
 for(let box of boxes){
   box.addEventListener("click",()=>{
-    overlay.style.display="flex";
-    const imgs=box.getElementsByTagName("img");
-    overlayImg.src=imgs[0].src;
-    overlayText.textContent=box.querySelector(".gallery-text").textContent;
-    let index=0;
-    clearInterval(window.overlayInterval);
-    window.overlayInterval=setInterval(()=>{
-      index=(index+1)%imgs.length;
-      overlayImg.src=imgs[index].src;
-    },2000);
+    if(activeBox && activeBox!==box) activeBox.classList.remove("active");
+    box.classList.toggle("active");
+    activeBox = box.classList.contains("active") ? box : null;
   });
-}
-
-function closeOverlay(){
-  overlay.style.display="none";
-  clearInterval(window.overlayInterval);
 }
 </script>
 
 </body>
-  </html>
+</html>
