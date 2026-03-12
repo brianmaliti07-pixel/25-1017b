@@ -39,64 +39,59 @@ h1{
   text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
 }
 
-/* GALLERY BOXES */
-.gallery-container{
-  display:flex;
-  justify-content:center;
+/* GALLERY GRID */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
   gap:30px;
-  margin-top:50px;
-  flex-wrap:wrap;
-  transition:0.5s;
+  max-width:1200px;
+  margin:50px auto;
 }
 
-.gallery-box{
-  width:280px;
-  height:400px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
+.gallery-item{
+  position:relative;
   border-radius:15px;
   overflow:hidden;
-  position:relative;
-  box-shadow:0 0 20px #38bdf8;
-  transition:0.5s;
   cursor:pointer;
+  box-shadow:0 0 20px #38bdf8;
+  transition:0.4s;
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
 }
 
-.gallery-box.active{
-  width:380px; /* widens on click */
-  box-shadow:0 0 50px #38bdf8;
+.gallery-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px #38bdf8;
 }
 
-.gallery-box img{
+.gallery-item img{
   width:100%;
-  height:300px;
+  height:250px;
   object-fit:cover;
   position:absolute;
   top:0;
   left:0;
   transition:opacity 1s ease-in-out;
+  opacity:0;
+}
+
+.gallery-item img.active{
   opacity:1;
 }
 
-.gallery-text{
+.caption{
   position:absolute;
   bottom:10px;
   width:100%;
   text-align:center;
   color:#cbd5f5;
-  font-size:14px;
-  line-height:1.3;
-  padding:0 10px;
-  text-shadow:0 0 5px #000;
-}
-
-.gallery-text span{
-  color:#38bdf8;
+  font-size:16px;
   font-weight:600;
   text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
+  padding:5px 10px;
+  backdrop-filter:blur(5px);
+  background:rgba(0,0,0,0.2);
 }
-
 </style>
 </head>
 <body>
@@ -107,70 +102,46 @@ h1{
 <a href="gallery.html">Gallery</a>
 <a href="videos.html">Videos</a>
 <a href="contact.html">Contact</a>
-<a href="css.html">Css</a>a
 </nav>
 
 <h1>Gallery</h1>
 
-<div class="gallery-container">
-  <div class="gallery-box" id="box1">
-    <img src="https://images.unsplash.com/photo-1581091870627-134d3b38e346?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-    <div class="gallery-text"><span>Ignite</span> the mind, and the world begins to unfold.</div>
+<div class="gallery-grid">
+  <div class="gallery-item" id="col1">
+    <img src="https://images.unsplash.com/photo-1581091870627-134d3b38e346?auto=format&fit=crop&w=800&q=80" class="active" alt="">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="">
+    <div class="caption">Ignite Your Imagination</div>
   </div>
 
-  <div class="gallery-box" id="box2">
-  <div class="gallery-box" id="box2">
-  <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80" alt="">
-  <img src="https://images.unsplash.com/photo-1581094288337-4a82b47325f5?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-  <img src="https://images.unsplash.com/photo-1526378722454-5c4fbd69e2cd?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-  <div class="gallery-text"><span>Perception</span> is the lens through which reality transforms.</div>
-</div>
-  <div class="gallery-box" id="box2">
-  <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80" alt="">
-  <img src="https://images.unsplash.com/photo-1581094288337-4a82b47325f5?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-  <img src="https://images.unsplash.com/photo-1526378722454-5c4fbd69e2cd?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-  <div class="gallery-text"><span>Perception</span> is the lens through which reality transforms.</div>
-</div>  
-    
-
-  <div class="gallery-box" id="box3">
-    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=800&q=80" alt="">
-    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80" alt="" style="opacity:0">
-    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&w=800&q=80" alt="" style="opacity:0">
-    <div class="gallery-text"><span>Transcend</span> ordinary thought; embrace the edge of creation.</div>
+  <div class="gallery-item" id="col2">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c443e0c?auto=format&fit=crop&w=800&q=80" class="active" alt="">
+    <img src="https://images.unsplash.com/photo-1581093588401-0f0f2be1e943?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1532777946371-3c0fbe5ff57d?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="">
+    <div class="caption">Perception Reimagined</div>
   </div>
 </div>
 
 <script>
-// ROTATE IMAGES AUTOMATICALLY
-function rotateBoxImages(boxId){
-  const box=document.getElementById(boxId);
-  const imgs=box.getElementsByTagName("img");
-  let current=0;
+// AUTO-CYCLE IMAGES EVERY 3 SECONDS
+function cycleImages(columnId){
+  const container = document.getElementById(columnId);
+  const imgs = container.getElementsByTagName("img");
+  let current = 0;
   setInterval(()=>{
-    imgs[current].style.opacity=0;
-    current=(current+1)%imgs.length;
-    imgs[current].style.opacity=1;
+    imgs[current].classList.remove("active");
+    current = (current + 1) % imgs.length;
+    imgs[current].classList.add("active");
   },3000);
 }
-rotateBoxImages("box1");
-rotateBoxImages("box2");
-rotateBoxImages("box3");
 
-// CLICK TO WIDEN / FOCUS
-const boxes=document.getElementsByClassName("gallery-box");
-let activeBox=null;
-
-for(let box of boxes){
-  box.addEventListener("click",()=>{
-    if(activeBox && activeBox!==box) activeBox.classList.remove("active");
-    box.classList.toggle("active");
-    activeBox = box.classList.contains("active") ? box : null;
-  });
-}
+cycleImages("col1");
+cycleImages("col2");
 </script>
 
 </body>
-</html>
+  </html>
