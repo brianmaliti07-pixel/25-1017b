@@ -100,6 +100,30 @@ Building 2 - Internal CSS
 <h3 class="building3">
 Building 3 - External CSS
 </h3>
+/* NAVIGATION AS INLINE BUTTONS */
+nav{
+  text-align:center;
+  background:#0d47a1;
+  padding:15px 0;
+}
 
+nav a{
+  display:inline-block;       /* makes them behave like buttons */
+  margin:0 10px;              /* spacing between buttons */
+  padding:12px 25px;          /* size of buttons */
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;          /* rounded corners */
+  background: rgba(56,189,248,0.2); /* subtle blue glow */
+  transition: 0.3s;
+}
+
+nav a:hover{
+  background:#38bdf8;        /* bright neon blue on hover */
+  color:#0a0a0f;             /* text color changes on hover */
+  transform: scale(1.05);    /* slight zoom effect */
+}
+  
 </body>
 </html>
