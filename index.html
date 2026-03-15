@@ -18,7 +18,6 @@ body{
   scroll-behavior:smooth;
   overflow-x:hidden;
 }
-
 @keyframes gradientShift {
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
@@ -53,6 +52,8 @@ h1{
   text-align:center;
   margin-top:40px;
   font-size:2.5rem;
+  color:#38bdf8;
+  text-shadow:0 0 15px #38bdf8,0 0 30px #38bdf8;
 }
 
 /* TYPING EFFECT */
@@ -82,22 +83,98 @@ h1{
   transform: scale(1.05);
 }
 
-/* HIDDEN / SHOW ANIMATION */
-.hidden{
-  opacity:0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+/* EXPLORE OVERLAY */
+#exploreOverlay{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(10,10,20,0.95);
+  z-index:1000;
+  overflow-y:auto;
+  text-align:center;
+  padding:40px 20px;
+  box-sizing:border-box;
 }
-.show{
-  opacity:1;
-  transform: translateY(0);
+
+/* CANVAS */
+#exploreCanvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+/* OVERLAY CONTENT */
+#exploreOverlay h2{
+  position:relative;
+  z-index:1;
+  color:#38bdf8;
+  font-size:2rem;
+  margin-bottom:10px;
+}
+#exploreOverlay p{
+  position:relative;
+  z-index:1;
+  max-width:700px;
+  margin:auto;
+  font-size:1.1rem;
+  color:#38bdf8;
+}
+
+/* BOXES */
+.container{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+}
+.box{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  padding:20px;
+  width:250px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+  font-weight:bold;
+  transition:0.3s;
+  color:white;
+}
+.box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #38bdf8;
+}
+
+/* CLOSE BUTTON */
+.closeBtn{
+  position:relative;
+  z-index:1;
+  margin:30px auto 10px;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  background:#38bdf8;
+  cursor:pointer;
+  font-weight:bold;
+  display:block;
+  transition:0.3s;
+}
+.closeBtn:hover{
+  background:#ff9800;
 }
 
 /* FOOTER */
-footer{
+#exploreOverlay footer{
+  position:relative;
+  z-index:1;
   background:#0d47a1;
-  color:white;
-  text-align:center;
   padding:15px;
   margin-top:40px;
 }
@@ -115,39 +192,33 @@ footer{
   <a href="css.html">Css</a>
 </nav>
 
- <!-- MAIN HEADING -->
+<!-- MAIN HEADING -->
 <h1>Welcome to a world where ideas become a reality</h1>
 <p id="typing"></p>
 <button id="exploreBtn">Explore</button>
 
-<!-- EXPLORE HIDDEN PAGE -->
+<!-- EXPLORE OVERLAY -->
 <div id="exploreOverlay">
-<canvas id="exploreCanvas"></canvas>
-<h2>Exploration Begins</h2>
-<p>Beyond curiosity lies discovery. Every idea holds the power to reshape what is possible.</p>
+  <canvas id="exploreCanvas"></canvas>
+  <h2>Exploration Begins</h2>
+  <p>Beyond boundaries lies discovery. Every idea holds the power to reshape what is possible.</p>
 
-<div class="container">
+  <div class="container">
+    <div class="box"><p>Ideas shape the future before it even exists.</p></div>
+    <div class="box"><p>Innovation doesn’t wait — it creates itself.</p></div>
+    <div class="box"><p>Step beyond limits and witness the impossible unfold.</p></div>
+    <div class="box"><p>Every thought holds the power to change everything.</p></div>
+    <div class="box"><p>What you imagine today can become reality tomorrow.</p></div>
+    <div class="box"><p>Dare to see what others cannot.</p></div>
+    <div class="box"><p>The edge of possibility is only where you begin.</p></div>
+  </div>
 
-<!-- ORIGINAL CONTENT BOXES GO HERE -->
-<div class="box">
-  <p>Original Box 1 content here</p>
-</div>
-<div class="box">
-  <p>Original Box 2 content here</p>
-</div>
-<div class="box">
-  <p>Original Box 3 content here</p>
-</div>
-<!-- Add more boxes exactly as in your original Explore overlay -->
+  <button class="closeBtn" onclick="closeExplore()">Close</button>
 
-</div>
-
-<button class="closeBtn" onclick="closeExplore()">Close</button>
-
-<footer>
-<p>© 2026 Brian Elijah Maliti Onyango</p>
-<p>Innovation • Creativity • Technology</p>
-</footer>
+  <footer>
+    <p>© 2026 Brian Elijah Maliti Onyango</p>
+    <p>Innovation • Creativity • Technology</p>
+  </footer>
 </div>
 
 <script>
@@ -203,7 +274,13 @@ function animateParticles(){
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
-</script> 
+
+/* RESIZE CANVAS ON WINDOW CHANGE */
+window.addEventListener('resize',()=>{
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+});
+</script>
 
 </body>
 </html>
