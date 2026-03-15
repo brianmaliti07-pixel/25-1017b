@@ -114,87 +114,96 @@ footer{
   <a href="contact.html">Contact</a>
   <a href="css.html">Css</a>
 </nav>
-<!-- WELCOME HEADING -->
 
-<h1>Enter a World Where Ideas Become Reality</h1>
-
+ <!-- MAIN HEADING -->
+<h1>Welcome to a world where ideas become a reality</h1>
 <p id="typing"></p>
-
 <button id="exploreBtn">Explore</button>
 
-<!-- EXPLORE OVERLAY -->
-
+<!-- EXPLORE HIDDEN PAGE -->
 <div id="exploreOverlay">
-
-<h2>Exploration Begins...</h2>
-
-<p>
-Ideas ignite. Curiosity expands. Possibilities unfold.
-Every creation begins with imagination and courage to explore beyond the ordinary.
-</p>
-
-<button onclick="closeExplore()">Continue</button>
-
-</div>
-
-<!-- CONTAINERS -->
+<canvas id="exploreCanvas"></canvas>
+<h2>Exploration Begins</h2>
+<p>Beyond curiosity lies discovery. Every idea holds the power to reshape what is possible.</p>
 
 <div class="container">
 
+<!-- ORIGINAL CONTENT BOXES GO HERE -->
 <div class="box">
-<img src="https://picsum.photos/id/1015/300/200">
-<p>Innovation begins where curiosity refuses to stay silent.</p>
+  <p>Original Box 1 content here</p>
+</div>
+<div class="box">
+  <p>Original Box 2 content here</p>
+</div>
+<div class="box">
+  <p>Original Box 3 content here</p>
+</div>
+<!-- Add more boxes exactly as in your original Explore overlay -->
+
 </div>
 
-<div class="box">
-<img src="https://picsum.photos/id/1016/300/200">
-<p>Ideas become realities when imagination meets persistence.</p>
-</div>
+<button class="closeBtn" onclick="closeExplore()">Close</button>
 
-<div class="box">
-<img src="https://picsum.photos/id/1018/300/200">
-<p>Every creation begins with a spark of inspiration.</p>
-</div>
-
-<div class="box">
-<img src="https://picsum.photos/id/1020/300/200">
-<p>Technology is the canvas; creativity is the paint.</p>
-</div>
-
-<div class="box">
-<img src="https://picsum.photos/id/1024/300/200">
-<p>The future belongs to those who dare to design it.</p>
-</div>
-  
-<!-- FOOTER -->
 <footer>
 <p>© 2026 Brian Elijah Maliti Onyango</p>
 <p>Innovation • Creativity • Technology</p>
 </footer>
+</div>
 
 <script>
-// TYPING EFFECT
-const typingText = "Dive deep into the unknown. Explore ideas, witness possibilities, feel the edge of innovation.";
-let index=0;
-function typeWriter(){
-    if(index < typingText.length){
-        document.getElementById("typing").innerHTML += typingText.charAt(index);
-        index++;
-        setTimeout(typeWriter,50);
-    }
+/* TYPING EFFECT */
+const text="Dive deep into the unknown. Explore ideas, witness possibilities, and experience the edge of innovation.";
+let i=0;
+function typing(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(typing,40);
+  }
 }
-typeWriter();
+typing();
 
-// SCROLL ANIMATION
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
+/* EXPLORE BUTTON */
+document.getElementById("exploreBtn").onclick=function(){
+  document.getElementById("exploreOverlay").style.display="block";
+}
+
+/* CLOSE EXPLORE */
+function closeExplore(){
+  document.getElementById("exploreOverlay").style.display="none";
+}
+
+/* PARTICLE GRAPHICS */
+let canvas=document.getElementById("exploreCanvas");
+let ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<150;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()-0.5)*1.5,
+    vy:(Math.random()-0.5)*1.5,
+    r:Math.random()*2+1
   });
-});
-document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
-</script>
+}
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.vx;
+    p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="#38bdf8";
+    ctx.fill();
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+</script> 
 
 </body>
 </html>
