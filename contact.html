@@ -78,6 +78,25 @@ box-shadow:0 0 20px rgba(56,189,248,0.3);
 <p>© 2026 Brian Onyango | Admission: 25-1017</p>
 <p>Innovation • Creativity • Technology</p>  
 </footer>
-  
+
+</footer>
+
+<script>
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach((entry)=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el)=>observer.observe(el));
+
+</script>
+
+</body>
+</html>  
 </body>
 </html>
