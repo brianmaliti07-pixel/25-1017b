@@ -207,3 +207,22 @@ h1{
   .box{width:90%;}
   #exploreOverlay footer{flex-direction:column; gap:10px;}
     }
+
+/* style.css - EXTERNAL CSS example */
+.external-box {
+  background: rgba(255,255,255,0.1);
+  color: #0a0a0f;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 600px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+.external-box:hover {
+  background: #38bdf8;
+  color: white;
+  transform: scale(1.05);
+}
