@@ -4,12 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home</title>
+
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome for Social Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
+<!-- ================== MAIN PAGE ================== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
@@ -22,12 +30,23 @@
 <h1>Welcome to a world where ideas become a reality</h1>
 <p id="typing"></p>
 <button id="exploreBtn">Explore</button>
+<!-- ================== END MAIN PAGE ================== -->
 
+
+
+<!-- ================== EXPLORE OVERLAY (HIDDEN BY DEFAULT) ================== -->
 <div id="exploreOverlay">
+  
+  <!-- Particle Canvas Background -->
   <canvas id="exploreCanvas"></canvas>
+
+  <!-- Heading inside overlay -->
   <h2>Exploration Begins</h2>
+  
+  <!-- Paragraph inside overlay -->
   <p>Beyond boundaries lies discovery. Every idea holds the power to reshape what is possible.</p>
 
+  <!-- Container for all original “boxes” content -->
   <div class="container">
     <div class="box"><p>Ideas shape the future before it even exists.</p></div>
     <div class="box"><p>Innovation doesn’t wait — it creates itself.</p></div>
@@ -38,8 +57,10 @@
     <div class="box"><p>The edge of possibility is only where you begin.</p></div>
   </div>
 
+  <!-- Close Overlay Button -->
   <button class="closeBtn">Close</button>
 
+  <!-- Footer with social icons -->
   <footer>
     <p>© 2026 Brian Elijah Maliti Onyango</p>
     <div class="social">
@@ -48,10 +69,14 @@
       <a href="mailto:brian@example.com"><i class="fas fa-envelope"></i></a>
     </div>
   </footer>
-</div>
 
+</div>
+<!-- ================== END EXPLORE OVERLAY ================== -->
+
+
+<!-- ================== SCRIPT ================== -->
 <script>
-/* Typing Effect */
+/* ================== TYPING EFFECT ================== */
 const text="Dive deep into the unknown. Explore ideas, witness possibilities, and experience the edge of innovation.";
 let i=0;
 function typing(){
@@ -63,31 +88,31 @@ function typing(){
 }
 typing();
 
-/* Explore Button */
-const exploreBtn=document.getElementById("exploreBtn");
-const overlay=document.getElementById("exploreOverlay");
-const closeBtn=document.querySelector(".closeBtn");
-const boxes=document.querySelectorAll(".box");
+/* ================== EXPLORE BUTTON ================== */
+const exploreBtn = document.getElementById("exploreBtn");
+const overlay = document.getElementById("exploreOverlay");
+const closeBtn = document.querySelector(".closeBtn");
+const boxes = document.querySelectorAll(".box");
 
-exploreBtn.onclick=function(){
-  overlay.style.display="block";
+exploreBtn.onclick = function(){
+  overlay.style.display = "block";
   boxes.forEach((box,index)=>{
     setTimeout(()=>{box.classList.add("show");}, index*250);
   });
 }
 
-/* Close Explore */
-closeBtn.onclick=function(){
-  overlay.style.display="none";
+/* ================== CLOSE OVERLAY ================== */
+closeBtn.onclick = function(){
+  overlay.style.display = "none";
   boxes.forEach(box=>box.classList.remove("show"));
 }
 
-/* Particle Canvas with mouse interaction */
-let canvas=document.getElementById("exploreCanvas");
-let ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-let particles=[];
+/* ================== PARTICLE CANVAS ================== */
+let canvas = document.getElementById("exploreCanvas");
+let ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let particles = [];
 for(let i=0;i<150;i++){
   particles.push({
     x:Math.random()*canvas.width,
@@ -98,6 +123,7 @@ for(let i=0;i<150;i++){
   });
 }
 
+// Mouse interactive effect
 window.addEventListener('mousemove', e=>{
   particles.forEach(p=>{
     let dx=p.x-e.clientX;
@@ -126,11 +152,13 @@ function animateParticles(){
 }
 animateParticles();
 
+// Resize canvas on window resize
 window.addEventListener('resize',()=>{
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
 </script>
+<!-- ================== END SCRIPT ================== -->
 
 </body>
-  </html>
+</html>
