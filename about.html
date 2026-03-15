@@ -1,252 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-
 body{
-margin:0;
-font-family:Segoe UI, sans-serif;
-background:radial-gradient(circle at top,#0f172a,#020617);
-color:white;
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(270deg,#0a0a0f,#1a1a2e,#0a0a0f);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  color:white;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
-/* NAVIGATION */
+@keyframes gradientShift {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
+/* NAV BUTTONS */
 nav{
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+  text-align:center;
+  background:#0d47a1;
+  padding:15px 0;
 }
-
 nav a{
-text-decoration:none;
-color:#cbd5f5;
-font-size:18px;
-transition:0.3s;
+  display:inline-block;
+  margin:0 10px;
+  padding:12px 25px;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  background: rgba(56,189,248,0.2);
+  transition:0.3s;
 }
-
 nav a:hover{
-color:#38bdf8;
-text-shadow:0 0 10px #38bdf8;
+  background:#38bdf8;
+  color:#0a0a0f;
+  transform: scale(1.05);
 }
 
-/* TITLE */
-
+/* PAGE HEADING */
 h1{
-text-align:center;
-margin-top:50px;
-font-size:50px;
-color:#38bdf8;
-
-text-shadow:
-0 0 10px #38bdf8,
-0 0 20px #38bdf8;
-
+  text-align:center;
+  margin-top:40px;
+  font-size:2.5rem;
 }
 
-/* INTRO TEXT */
-
-.intro{
-text-align:center;
-max-width:750px;
-margin:auto;
-margin-top:20px;
-font-size:18px;
-color:#cbd5f5;
-line-height:1.7;
+/* GLASSMORPHISM CARDS */
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  padding:30px;
+}
+.box{
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding:25px;
+  border-radius:12px;
+  width:300px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.box:hover{
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:0 8px 30px rgba(56,189,248,0.7);
+}
+.box p{
+  text-align:center;
+  color:#38bdf8;
+  font-size:1rem;
 }
 
-/* CARDS */
-
-.section{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-padding:60px;
+/* HIDDEN / SHOW ANIMATION */
+.hidden{
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.show{
+  opacity:1;
+  transform: translateY(0);
 }
 
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-border-radius:15px;
-padding:30px;
-width:260px;
-text-align:center;
-backdrop-filter:blur(10px);
-transition:0.4s;
+/* FOOTER */
+footer{
+  background:#0d47a1;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px #38bdf8;
+/* RESPONSIVE */
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+    align-items:center;
+  }
 }
-
-.card h3{
-color:#38bdf8;
-}
-
-/* TABLE */
-
-table{
-margin:auto;
-margin-top:40px;
-width:70%;
-border-collapse:collapse;
-}
-
-th,td{
-padding:15px;
-border:1px solid rgba(255,255,255,0.2);
-text-align:center;
-}
-
-th{
-background:#38bdf8;
-color:black;
-}
-
 </style>
-
 </head>
-
 <body>
 
 <nav>
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="gallery.html">Gallery</a>
-<a href="videos.html">Videos</a>
-<a href="contact.html">Contact</a>
-
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<h1>About</h1>
+<h1 class="hidden">About Me</h1>
 
-<p class="intro">
-
-Behind every line of code lies a quiet architecture of thought —  
-a space where logic meets imagination and ideas evolve into something tangible.  
-
-Technology, to me, is more than a collection of tools; it is a medium through which curiosity, creativity and structure converge to shape meaningful digital experiences.
-
-</p>
-
-<div class="section">
-
-<div class="card">
-
-<h3>Curiosity</h3>
-
-<p>
-
-Every discovery begins with a question.  
-Curiosity drives the desire to understand how systems work, how they interact, and how they can evolve beyond their original form.
-
-</p>
-
+<div class="container hidden">
+  <div class="box hidden">
+    <p>Innovator. Explorer of ideas that challenge reality.</p>
+  </div>
+  <div class="box hidden">
+    <p>Creative mind, pushing boundaries of imagination and technology.</p>
+  </div>
+  <div class="box hidden">
+    <p>Passionate about futuristic design, immersive experiences, and storytelling.</p>
+  </div>
 </div>
-
-<div class="card">
-
-<h3>Creativity</h3>
-
-<p>
-
-Innovation often emerges where logic and imagination intersect.  
-Through experimentation and exploration, abstract concepts gradually transform into functional and elegant solutions.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Growth</h3>
-
-<p>
-
-Technology never stands still.  
-The journey of learning, adapting and refining ideas continues endlessly, shaping both the creator and the creations themselves.
-
-</p>
-
-</div>
-
-</div>
-
-<h2 style="text-align:center; color:#38bdf8;">Education</h2>
-
-<h2 class="edu-title">Milestones of Thought</h2>
-
-<div class="table-container">
-
-<table>
-
-<tr>
-<th>Phase</th>
-<th>Experience</th>
-<th>Impact</th>
-</tr>
-
-<tr>
-<td>Ignition</td>
-<td>The spark of curiosity that questions, challenges, and dreams.</td>
-<td>Awakens the mind to possibilities yet unseen, the first step toward creation.</td>
-</tr>
-
-<tr>
-<td>Exploration</td>
-<td>Diving into unknown concepts, experimenting, testing boundaries.</td>
-<td>Shapes resilience, insight, and a framework for thinking differently.</td>
-</tr>
-
-<tr>
-<td>Transformation</td>
-<td>Abstract ideas meet structure, logic becomes tangible expression.</td>
-<td>Ideas evolve into creations, experiences into understanding, and challenges into mastery.</td>
-</tr>
-
-<tr>
-<td>Expansion</td>
-<td>Continuous curiosity, learning, and connecting disparate thoughts.</td>
-<td>The mind grows beyond convention, embracing innovation and depth.</td>
-</tr>
-
-</table>
-
-</div>
-
-
 
 <footer>
-  <p>© 2026 Brian Onyango | Admission: 25-1017</p>
-<p>Innovation • Creativity • Technology</p>
+  <p>© 2026 Brian Elijah Maliti Onyango</p>
+  <p>Innovation • Creativity • Technology</p>
 </footer>
 
-  </footer>
-
 <script>
-
+// SCROLL ANIMATION
 const observer = new IntersectionObserver((entries)=>{
-entries.forEach((entry)=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
 });
-});
-
-const hiddenElements = document.querySelectorAll(".hidden");
-hiddenElements.forEach((el)=>observer.observe(el));
-
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 </script>
-  
+
 </body>
 </html>
