@@ -1,129 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>CSS Demonstration</title>
-
-<link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Examples</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-body{
-background-color:#f0f8ff;
-font-family:Arial;
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0a0a0f;
+  color:white;
+  scroll-behavior:smooth;
 }
-</style>
-
-</head>
-
-<body>
-
-<header>
-<h1 style="text-align:center;color:darkblue;">Brian Onyango Portfolio</h1>
-</header>
-
-<nav class="menu">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="gallery.html">Gallery</a>
-<a href="videos.html">Videos</a>
-<a href="contact.html">Contact</a>
-<a href="css.html">CSS</a>
-</nav>
-
-  
-<!-- INTERNAL CSS -->
-<style>
-
-.paragraph2{
-color:orange;
-font-weight:bold;
-}
-
-.highlight2{
-color:green;
-}
-
-.building2{
-color:red;
-}
-
-</style>
-
-<!-- EXTERNAL CSS -->
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<h2>CSS Demonstration</h2>
-
-<!-- PARAGRAPHS -->
-
-<p style="color:blue; font-style:italic;">
-Paragraph 1 - Styled using INLINE CSS
-</p>
-
-<p class="paragraph2">
-Paragraph 2 - Styled using INTERNAL CSS
-</p>
-
-<p class="paragraph3">
-Paragraph 3 - Styled using EXTERNAL CSS
-</p>
-
-
-<!-- HIGHLIGHTS -->
-
-<h1 style="color:red;">
-Highlight 1 - Inline CSS
-</h1>
-
-<h1 class="highlight2">
-Highlight 2 - Internal CSS
-</h1>
-
-<h1 class="highlight3">
-Highlight 3 - External CSS
-</h1>
-
-
-<!-- BUILDINGS -->
-
-<h3 style="color:purple;">
-Building 1 - Inline CSS
-</h3>
-
-<h3 class="building2">
-Building 2 - Internal CSS
-</h3>
-
-<h3 class="building3">
-Building 3 - External CSS
-</h3>
-/* NAVIGATION AS INLINE BUTTONS */
 nav{
   text-align:center;
   background:#0d47a1;
   padding:15px 0;
 }
-
 nav a{
-  display:inline-block;       /* makes them behave like buttons */
-  margin:0 10px;              /* spacing between buttons */
-  padding:12px 25px;          /* size of buttons */
+  display:inline-block;
+  margin:0 10px;
+  padding:12px 25px;
   font-weight:bold;
   color:white;
   text-decoration:none;
-  border-radius:8px;          /* rounded corners */
-  background: rgba(56,189,248,0.2); /* subtle blue glow */
-  transition: 0.3s;
+  border-radius:8px;
+  background: rgba(56,189,248,0.2);
+  transition:0.3s;
+}
+nav a:hover{
+  background:#38bdf8;
+  color:#0a0a0f;
+  transform: scale(1.05);
+}
+h1{
+  text-align:center;
+  margin-top:40px;
+  font-size:2.2rem;
+}
+/* CODE DISPLAY */
+.code-container{
+  max-width:900px;
+  margin:30px auto;
+  padding:20px;
+  background: rgba(56,189,248,0.1);
+  border-radius:12px;
+  overflow-x:auto;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+code{
+  display:block;
+  white-space: pre-wrap;
+  font-family:'Courier New', monospace;
+  color:#38bdf8;
+}
+footer{
+  background:#0d47a1;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="contact.html">Contact</a>
+  <a href="css.html">Css</a>
+</nav>
+
+<h1>CSS Examples</h1>
+
+<div class="code-container">
+<code>
+/* Example: Button styling */
+button {
+  background:#38bdf8;
+  color:#0a0a0f;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-nav a:hover{
-  background:#38bdf8;        /* bright neon blue on hover */
-  color:#0a0a0f;             /* text color changes on hover */
-  transform: scale(1.05);    /* slight zoom effect */
+button:hover {
+  background:#ff9800;
+  transform: scale(1.05);
 }
-  
+</code>
+
+<code>
+/* Example: Box styling */
+.box {
+  background: rgba(255,255,255,0.1);
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+  transition:all 0.3s ease;
+}
+</code>
+</div>
+
+<footer>
+  <p>© 2026 Brian Elijah Maliti Onyango</p>
+</footer>
+
 </body>
 </html>
