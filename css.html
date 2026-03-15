@@ -36,32 +36,28 @@ body {
   scroll-behavior: smooth;
 }
 
-/* NAVIGATION - all tabs in one line */
+/* NAVIGATION - ORIGINAL HORIZONTAL FORMAT */
 nav {
-  display: flex;
-  justify-content: center; /* centers links horizontally */
-  flex-wrap: nowrap;       /* prevents wrapping to next line */
+  text-align: center;
   background:#0d47a1;
   padding:15px 0;
-  overflow-x: auto;        /* allows scroll on tiny screens */
 }
 
 nav a {
-  display:inline-block;
-  margin:0 10px;
-  padding:12px 25px;
-  font-weight:bold;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
+  display: inline-block;
+  margin: 0 10px;
+  padding: 12px 25px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
   background: rgba(56,189,248,0.2);
-  transition:0.3s;
-  white-space: nowrap;     /* ensures each link stays on one line */
+  transition: 0.3s;
 }
 
 nav a:hover {
-  background:#38bdf8;
-  color:#0a0a0f;
+  background: #38bdf8;
+  color: #0a0a0f;
   transform: scale(1.05);
 }
 
