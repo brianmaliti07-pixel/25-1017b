@@ -1,170 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
 body{
   margin:0;
-  font-family:Segoe UI,sans-serif;
-  background:radial-gradient(circle,#0f172a,#020617);
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(270deg,#0a0a0f,#1a1a2e,#0a0a0f);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
   color:white;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
-/* NAVIGATION */
+@keyframes gradientShift {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* NAV BUTTONS */
 nav{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:20px;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  position:sticky;
-  top:0;
+  text-align:center;
+  background:#0d47a1;
+  padding:15px 0;
 }
 nav a{
+  display:inline-block;
+  margin:0 10px;
+  padding:12px 25px;
+  font-weight:bold;
+  color:white;
   text-decoration:none;
-  color:#cbd5f5;
-  font-size:18px;
+  border-radius:8px;
+  background: rgba(56,189,248,0.2);
   transition:0.3s;
 }
-nav a:hover{color:#38bdf8;text-shadow:0 0 10px #38bdf8;}
+nav a:hover{
+  background:#38bdf8;
+  color:#0a0a0f;
+  transform: scale(1.05);
+}
 
-/* TITLE */
+/* PAGE HEADING */
 h1{
   text-align:center;
-  margin-top:50px;
-  font-size:50px;
-  color:#38bdf8;
-  text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
+  margin-top:40px;
+  font-size:2.5rem;
 }
 
-/* GRID */
-.gallery-grid{
+/* GALLERY GRID */
+.container{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
-  max-width:1200px;
-  margin:50px auto;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:30px;
 }
-
-/* ITEM */
-.gallery-item{
-  position:relative;
-  border-radius:15px;
+.box{
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius:12px;
   overflow:hidden;
-  box-shadow:0 0 20px #38bdf8;
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
-  height:250px;
   cursor:pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
-/* IMAGES STACKED */
-.gallery-item img{
+.box img{
   width:100%;
-  height:100%;
-  object-fit:cover;
-  position:absolute;
-  top:0;
-  left:0;
-  opacity:0;
-  transition:opacity 1s ease-in-out;
-  z-index:0;
+  display:block;
+  transition: transform 0.4s ease;
 }
-
-.gallery-item img.active{
-  opacity:1;
-  z-index:1;
+.box:hover img{
+  transform: scale(1.1);
 }
-
-.caption{
-  position:absolute;
-  bottom:0;
-  width:100%;
+.box p{
   text-align:center;
-  color:#cbd5f5;
-  font-size:16px;
-  font-weight:600;
-  text-shadow:0 0 10px #38bdf8,0 0 20px #38bdf8;
-  padding:5px 0;
-  background:rgba(0,0,0,0.3);
+  color:#38bdf8;
+  padding:10px 5px;
+}
+
+/* HIDDEN / SHOW ANIMATION */
+.hidden{
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.show{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer{
+  background:#0d47a1;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
 }
 </style>
 </head>
 <body>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="gallery.html">Gallery</a>
-<a href="videos.html">Videos</a>
-<a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<h1>Gallery</h1>
+<h1 class="hidden">Gallery</h1>
 
-<div class="gallery-grid">
-  <div class="gallery-item" id="col1">
-    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800" class="active">
-    <img src="https://images.pexels.com/photos/373562/pexels-photo-373562.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <img src="https://images.pexels.com/photos/373540/pexels-photo-373540.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <img src="https://images.pexels.com/photos/373541/pexels-photo-373541.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <img src="https://images.pexels.com/photos/373542/pexels-photo-373542.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <div class="caption">Ignite Your Imagination</div>
+<div class="container hidden">
+  <div class="box hidden">
+    <img src="https://picsum.photos/id/1015/400/300" alt="Gallery 1">
+    <p>Immersive visual concept #1</p>
   </div>
-
-  <div class="gallery-item" id="col2">
-    <img src="https://images.pexels.com/photos/373544/pexels-photo-373544.jpeg?auto=compress&cs=tinysrgb&w=800" class="active">
-    <img src="https://images.pexels.com/photos/373545/pexels-photo-373545.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <img src="https://images.pexels.com/photos/373546/pexels-photo-373546.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <img src="https://images.pexels.com/photos/373547/pexels-photo-373547.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <img src="https://images.pexels.com/photos/373548/pexels-photo-373548.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <div class="caption">Perception Reimagined</div>
+  <div class="box hidden">
+    <img src="https://picsum.photos/id/1016/400/300" alt="Gallery 2">
+    <p>Immersive visual concept #2</p>
+  </div>
+  <div class="box hidden">
+    <img src="https://picsum.photos/id/1018/400/300" alt="Gallery 3">
+    <p>Immersive visual concept #3</p>
+  </div>
+  <div class="box hidden">
+    <img src="https://picsum.photos/id/1019/400/300" alt="Gallery 4">
+    <p>Immersive visual concept #4</p>
+  </div>
+  <div class="box hidden">
+    <img src="https://picsum.photos/id/1020/400/300" alt="Gallery 5">
+    <p>Immersive visual concept #5</p>
+  </div>
+  <div class="box hidden">
+    <img src="https://picsum.photos/id/1021/400/300" alt="Gallery 6">
+    <p>Immersive visual concept #6</p>
   </div>
 </div>
 
-<script>
-// FUNCTION TO CYCLE IMAGES BACK TO BACK
-function autoCycle(columnId){
-  const container = document.getElementById(columnId);
-  const imgs = container.getElementsByTagName("img");
-  let current = 0;
-  setInterval(()=>{
-    imgs[current].classList.remove("active");
-    current = (current + 1) % imgs.length;
-    imgs[current].classList.add("active");
-  },3000);
-}
-
-autoCycle("col1");
-autoCycle("col2");
-</script>
-
-
 <footer>
-<p>© 2026 Brian Onyango | Admission: 25-1017</p>
-<p>Innovation • Creativity • Technology</p> 
+<p>© 2026 Brian Elijah Maliti Onyango</p>
+<p>Innovation • Creativity • Technology</p>
 </footer>
 
- </footer>
-
 <script>
-
+// SCROLL ANIMATION
 const observer = new IntersectionObserver((entries)=>{
-entries.forEach((entry)=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
 });
-});
-
-const hiddenElements = document.querySelectorAll(".hidden");
-hiddenElements.forEach((el)=>observer.observe(el));
-
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 </script>
 
 </body>
-</html> 
-  
-</body>
-</html>
+  </html>
