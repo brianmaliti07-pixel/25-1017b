@@ -8,9 +8,6 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome for social icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <!-- External CSS -->
 <link rel="stylesheet" href="style.css">
 
@@ -19,7 +16,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #0a0a0f; /* Restored original static background */
+  background: #0d47a1; /* Matching other tabs */
   color: white;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -52,23 +49,23 @@ nav a:hover{
 h1{
   text-align: center;
   margin-top: 40px;
-  font-size: 2.5rem;
-  color: #38bdf8;
+  font-size: 2.2rem;
+  color: #ffffff;
 }
 
 /* TYPING EFFECT */
 #typing{
   text-align: center;
-  font-size: 1.2rem;
-  margin: 20px auto;
-  max-width: 800px;
+  font-size: 1rem;
+  margin: 15px auto 30px;
+  max-width: 700px;
   color: #38bdf8;
 }
 
 /* EXPLORE BUTTON */
 #exploreBtn{
   display: block;
-  margin: 30px auto;
+  margin: 20px auto 40px;
   padding: 12px 25px;
   border: none;
   border-radius: 8px;
@@ -87,96 +84,56 @@ h1{
 #exploreOverlay{
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10,10,20,0.95);
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: #0d47a1;
   z-index: 1000;
   overflow-y: auto;
-  text-align: center;
-  padding: 40px 20px;
+  padding: 30px 20px;
   box-sizing: border-box;
+  text-align: center;
 }
 
-/* CANVAS */
-#exploreCanvas{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-/* OVERLAY CONTENT */
-#exploreOverlay h2{
-  position: relative;
-  z-index: 1;
-  color: #38bdf8;
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-#exploreOverlay p{
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1rem;
-  color: #38bdf8;
-}
-
-/* BOXES */
+/* BOXES CONTAINERS */
 .container{
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .box{
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.1);
   padding: 20px;
   width: 250px;
-  border-radius: 14px;
-  box-shadow: 0 0 10px rgba(56,189,248,0.3), 0 0 20px rgba(56,189,248,0.2);
-  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   color: white;
+  font-weight: bold;
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease, transform 0.5s ease;
-  perspective: 1000px;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
 }
 .box.show{
   opacity: 1;
   transform: translateY(0);
-  animation: glowPulse 2s infinite alternate;
 }
 .box:hover{
-  transform: scale(1.08) rotateY(5deg) rotateX(3deg);
-  box-shadow:0 0 20px #38bdf8,0 0 40px #38bdf8;
-  cursor:pointer;
-}
-@keyframes glowPulse{
-  0%{box-shadow:0 0 15px #38bdf8,0 0 30px #38bdf8;}
-  50%{box-shadow:0 0 25px #38bdf8,0 0 50px #38bdf8;}
-  100%{box-shadow:0 0 15px #38bdf8,0 0 30px #38bdf8;}
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(56,189,248,0.5);
 }
 
 /* CLOSE BUTTON */
 .closeBtn{
-  position: relative;
-  z-index: 1;
-  margin: 30px auto 10px;
+  margin: 25px auto 10px;
   padding: 12px 25px;
   border: none;
   border-radius: 8px;
   background: #38bdf8;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
   display: block;
   transition: 0.3s;
 }
@@ -185,33 +142,27 @@ h1{
 }
 
 /* FOOTER */
-#exploreOverlay footer{
-  position: relative;
-  z-index: 1;
-  background: #0d47a1;
-  padding: 15px;
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#exploreOverlay footer p{
-  margin: 0;
-  color: white;
-}
-#exploreOverlay footer .social a{
+footer{
+  background:#0d47a1;
   color:white;
-  margin-left: 15px;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+footer .social a{
+  color:white;
+  margin:0 10px;
   font-size:1.2rem;
   transition:0.3s;
 }
-#exploreOverlay footer .social a:hover{
+footer .social a:hover{
   color:#38bdf8;
 }
 
+/* MOBILE RESPONSIVE */
 @media screen and (max-width:600px){
   .box{width:90%;}
-  #exploreOverlay footer{flex-direction:column; gap:10px;}
+  footer .social{margin-top:10px;}
 }
 </style>
 </head>
@@ -227,20 +178,18 @@ h1{
   <a href="css.html">Css</a>
 </nav>
 
-<!-- MAIN PAGE CONTENT -->
+<!-- MAIN PAGE -->
 <h1>Welcome to a world where ideas become a reality</h1>
 <p id="typing"></p>
 <button id="exploreBtn">Explore</button>
 
 <!-- EXPLORE OVERLAY -->
 <div id="exploreOverlay">
-  <canvas id="exploreCanvas"></canvas>
-
   <h2>Exploration Begins</h2>
   <p>Beyond curiosity lies discovery. Every idea holds the power to reshape what is possible.</p>
 
   <div class="container">
-    <div class="box"><p>Ideas shape the future before it even exists.</p></div>
+    <div class="box"><p>Ideas shape the future before it exists.</p></div>
     <div class="box"><p>Innovation doesn’t wait — it creates itself.</p></div>
     <div class="box"><p>Step beyond limits and witness the impossible unfold.</p></div>
     <div class="box"><p>Every thought holds the power to change everything.</p></div>
@@ -285,60 +234,13 @@ exploreBtn.onclick=function(){
   overlay.style.display="block";
   boxes.forEach((box,index)=>{
     setTimeout(()=>{box.classList.add("show");}, index*250);
-}
+});
 
 closeBtn.onclick=function(){
   overlay.style.display="none";
   boxes.forEach(box=>box.classList.remove("show"));
 }
-
-/* PARTICLE CANVAS */
-let canvas=document.getElementById("exploreCanvas");
-let ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-let particles=[];
-for(let i=0;i<150;i++){
-  particles.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    vx:(Math.random()-0.5)*1.5,
-    vy:(Math.random()-0.5)*1.5,
-    r:Math.random()*2+1
-  });
-}
-window.addEventListener('mousemove', e=>{
-  particles.forEach(p=>{
-    let dx=p.x-e.clientX;
-    let dy=p.y-e.clientY;
-    let dist=Math.sqrt(dx*dx+dy*dy);
-    if(dist<100){
-      p.vx+=dx*0.0005;
-      p.vy+=dy*0.0005;
-    }
-  });
-});
-function animateParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p=>{
-    p.x+=p.vx;
-    p.y+=p.vy;
-    if(p.x<0||p.x>canvas.width)p.vx*=-1;
-    if(p.y<0||p.y>canvas.height)p.vy*=-1;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle="#38bdf8";
-    ctx.fill();
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-window.addEventListener('resize',()=>{
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
-});
 </script>
 
 </body>
-                                                                      </html>
+  </html>
