@@ -63,9 +63,17 @@ footer{
 background:#0d47a1;
 color:white;
 text-align:center;
-padding:15px;
-margin-top:20px;
+padding:20px;
+margin-top:40px;
+font-size:14px;
 }
+
+footer a{
+color:#ff9800;
+margin:0 10px;
+text-decoration:none;
+font-weight:bold;
+  }
 
 
 /* RESPONSIVE DESIGN FOR PHONES */
