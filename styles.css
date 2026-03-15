@@ -1,7 +1,20 @@
+.box{
+background:white;
+padding:20px;
+width:300px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+text-align:center;
+transition:0.3s;
+}
+
+.box:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
 body{
 font-family: Arial, sans-serif;
 margin:0;
-background: linear-gradient(to right,#e3f2fd,#ffffff);
 }
 
 /* NAVIGATION BAR */
