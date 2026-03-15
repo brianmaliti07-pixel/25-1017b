@@ -6,130 +6,102 @@
 <title>Videos</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-</head>
-  
-<body>
-  
 <style>
-  
-body{
-margin:0;
-font-family:Segoe UI;
-background:radial-gradient(circle,#0f172a,#020617);
-color:white;
+/* PAGE-SPECIFIC OVERRIDES */
+
+/* TWO-COLUMN VIDEO LAYOUT */
+.container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-nav{
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-background:rgba(0,0,0,0.4);
+/* VIDEO BOX HOVER EFFECT */
+.box:hover{
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 8px 30px rgba(56,189,248,0.7);
+  transition:0.4s ease;
 }
 
-nav a{
-color:#cbd5f5;
-text-decoration:none;
+/* CAPTIONS */
+.box p{
+  margin-top:10px;
+  font-size:0.95rem;
+  color:#38bdf8;
+  text-align:center;
 }
 
-nav a:hover{
-color:#38bdf8;
+/* RESPONSIVE FIXES */
+@media(max-width:768px){
+  .container{
+    grid-template-columns:1fr;
+  }
 }
-
-h1{
-text-align:center;
-margin-top:40px;
-color:#38bdf8;
-}
-
-.grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-padding:40px;
-}
-
-.video{
-background:rgba(255,255,255,0.05);
-padding:15px;
-border-radius:12px;
-backdrop-filter:blur(10px);
-transition:0.3s;
-}
-
-.video:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #38bdf8;
-}
-
 </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
 <nav>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="gallery.html">Gallery</a>
 <a href="videos.html">Videos</a>
 <a href="contact.html">Contact</a>
-<a href="css.html">Css</a>
 </nav>
 
+<!-- PAGE HEADING -->
 <h1 class="hidden">Videos</h1>
 
+<!-- VIDEO CONTAINER -->
 <section class="container hidden">
-<div class="box hidden">
-<iframe src="https://www.youtube.com/embed/4vrjEbTujGA" frameborder="0" allowfullscreen></iframe>
-<p class="hidden">Mercedes Benz Innovation</p>
-</div>
-<div class="box hidden">
-<iframe src="https://www.youtube.com/embed/some_other_video" frameborder="0" allowfullscreen></iframe>
-<p class="hidden">Futuristic Concepts</p>
-</div>
-<div class="box hidden">
-<iframe width="300" height="170" src="https://www.youtube.com/embed/7oBU7d5oenQ"></iframe>
-<p> Experience breathtaking visuals and immersive storytelling.</p>
-</div>
-<div class="box hidden">
-<iframe width="300" height="170" src="https://www.youtube.com/embed/jfKfPfyJRdk"></iframe>
-  <p>Catch the rhythm and feel the energy in every frame.</p>
-</div>
-<div class="box hidden">
-<iframe width="300" height="170" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-  <p>Discover creative ideas that push the boundaries of imagination.</p>
-</div>
-<div class="box hidden">
-<iframe width="300" height="170" src="https://www.youtube.com/embed/kJQP7kiw5Fk"></iframe>
-  <p>Let the visuals transport you into a world of innovation and fun.</p>
-</div>
 
-</div>
+  <div class="box hidden">
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/7oBU7d5oenQ" title="Video 1" frameborder="0" allowfullscreen></iframe>
+    <p>Experience breathtaking visuals and immersive storytelling.</p>
+  </div>
+
+  <div class="box hidden">
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="Video 2" frameborder="0" allowfullscreen></iframe>
+    <p>Catch the rhythm and feel the energy in every frame.</p>
+  </div>
+
+  <div class="box hidden">
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video 3" frameborder="0" allowfullscreen></iframe>
+    <p>Discover creative ideas that push the boundaries of imagination.</p>
+  </div>
+
+  <div class="box hidden">
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/kJQP7kiw5Fk" title="Video 4" frameborder="0" allowfullscreen></iframe>
+    <p>Let the visuals transport you into a world of innovation and fun.</p>
+  </div>
+
+  <div class="box hidden">
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/4vrjEbTujGA" title="Mercedes Benz Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>Mercedes Benz: Excellence in motion — witness futuristic innovation.</p>
+  </div>
+
 </section>
 
-
+<!-- FOOTER -->
 <footer>
 <p>© 2026 Brian Elijah Maliti Onyango</p>
 <p>Innovation • Creativity • Technology</p>
 </footer>
 
+<!-- SCROLL ANIMATION SCRIPT -->
 <script>
-// SCROLL ANIMATION
+// Intersection Observer for hidden/show animation
 const observer = new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add("show");}
-});
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
 });
 document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 </script>
 
 </body>
-  </html>
-
-
-
-
-
-
-
-
-
-
-
+    </html>
