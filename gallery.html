@@ -146,6 +146,25 @@ autoCycle("col2");
 <p>Innovation • Creativity • Technology</p> 
 </footer>
 
+ </footer>
+
+<script>
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach((entry)=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el)=>observer.observe(el));
+
+</script>
+
+</body>
+</html> 
   
 </body>
 </html>
